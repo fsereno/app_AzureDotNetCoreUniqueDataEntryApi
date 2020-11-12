@@ -20,15 +20,6 @@ namespace Azure.Function
             _helper = helper;
         }
 
-        [FunctionName("Test")]
-        public IActionResult Test(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            return new OkObjectResult("Endpoint reached!.");
-        }
-
         [FunctionName("UniqueDataEntryHttpTriggerCSharp")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
