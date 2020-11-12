@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Interfaces;
@@ -53,12 +52,10 @@ namespace Utils
             }
             catch (Exception exception)
             {
-                 _logger.LogInformation($"You cannot add duplicate items.");
+                _logger.LogWarning($"You cannot add duplicate items.");
             }
 
             return result;
         }
     }
 }
-//idea
-//uniqueDataEntry

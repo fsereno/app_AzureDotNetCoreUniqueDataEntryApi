@@ -78,7 +78,7 @@ namespace Test
         {
             var item = new Item(){ FirstName = "Tommy", SecondName = "Jones", Contact = "000 000 000", PostCode = "AB00 2AB" };
             var result = _sut.CanItemBeAdded(_dictionary, item);
-            VerifyLogger(LogLevel.Information, "You cannot add duplicate items.");
+            VerifyLogger(LogLevel.Warning, "You cannot add duplicate items.");
             Assert.False(result);
         }
 

@@ -43,10 +43,27 @@ namespace Azure.Function
             {
                 var requestBody = await streamReader.ReadToEndAsync();
                 var defaultType = new RequestBody();
+                log.LogInformation("requestBody: " + requestBody);
                 data = _helper.Convert<RequestBody>(requestBody, defaultType);
             }
 
+            
+
             var dictionary = data.Items.ToDictionary(x => x, x => x.FirstName, equalityComparer);
+
+            foreach (var item in data.Items) 
+            {
+                log.LogInformation(item.FirstName);
+                log.LogInformation(item.SecondName);
+                log.LogInformation(item.Contact);
+                log.LogInformation(item.PostCode);
+            }
+
+                log.LogInformation(data.Item.FirstName);
+                log.LogInformation(data.Item.SecondName);
+                log.LogInformation(data.Item.Contact);
+                log.LogInformation(data.Item.PostCode);
+
             var result = _helper.CanItemBeAdded(dictionary, data.Item);
 
             log.LogInformation($"Result is: {result}");
