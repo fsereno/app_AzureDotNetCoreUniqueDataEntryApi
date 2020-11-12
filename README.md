@@ -1,0 +1,2 @@
+# app_AzureDotNetCoreUniqueDataEntryApi
+Azure Functions application
