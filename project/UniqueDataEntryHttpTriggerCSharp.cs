@@ -1,35 +1,57 @@
-using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using Interfaces;
+using Models;
 
 namespace Azure.Function
 {
-    public static class UniqueDataEntryHttpTriggerCSharp
+    public class UniqueDataEntryHttpTriggerCSharp
     {
+        private IHelper _helper;
+
+        public UniqueDataEntryHttpTriggerCSharp(IHelper helper)
+        {
+            _helper = helper;
+        }
+
+        [FunctionName("Test")]
+        public IActionResult Test(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            return new OkObjectResult("Endpoint reached!.");
+        }
+
         [FunctionName("UniqueDataEntryHttpTriggerCSharp")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+            RequestBody data = null;
+            var equalityComparer = new Item.ItemEqualityComparer();
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            using (StreamReader streamReader = new StreamReader(req.Body))
+            {
+                var requestBody = await streamReader.ReadToEndAsync();
+                var defaultType = new RequestBody();
+                data = _helper.Convert<RequestBody>(requestBody, defaultType);
+            }
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            var dictionary = data.Items.ToDictionary(x => x, x => x.FirstName, equalityComparer);
+            var result = _helper.CanItemBeAdded(dictionary, data.Item);
 
-            return new OkObjectResult(responseMessage);
+            log.LogInformation($"Result is: {result}");
+
+            return new OkObjectResult(result);
         }
     }
 }
