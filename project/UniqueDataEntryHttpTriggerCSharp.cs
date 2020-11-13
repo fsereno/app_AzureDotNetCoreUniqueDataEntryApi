@@ -20,7 +20,7 @@ namespace Azure.Function
             _helper = helper;
         }
 
-        [FunctionName("UniqueDataEntryHttpTriggerCSharp")]
+        [FunctionName("CanItemBeAddedAsync")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
