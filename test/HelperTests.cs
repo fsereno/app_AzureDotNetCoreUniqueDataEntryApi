@@ -101,6 +101,21 @@ namespace Test
             Assert.True(result);
         }
 
+        [Fact]
+        public void TestCanItemBeAddedCaseSensitive()
+        {
+            var item = new Item(){ FirstName = "JAMES", SecondName = "BOND", Contact = "000 000 000", PostCode = "AB00 1AB" };
+            var result = _sut.CanItemBeAdded(_dictionary, item);
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void TestCanItemBeAddedSpaceSensitive()
+        {
+            var item = new Item(){ FirstName = "James", SecondName = "Bond ", Contact = " 000 000 000 ", PostCode = "AB00 1AB" };
+            var result = _sut.CanItemBeAdded(_dictionary, item);
+            Assert.False(result);
+        }
 
         private void VerifyLogger(LogLevel expectedLogLevel, string expectedMessage = "")
         {

@@ -30,9 +30,9 @@ namespace Models
                 {
                     return false;
                 }
-                else if (item1.SecondName == item2.SecondName
-                    && item1.Contact == item2.Contact
-                    && item1.PostCode == item2.PostCode)
+                else if (Normalise(item1.SecondName) == Normalise(item2.SecondName)
+                    && Normalise(item1.Contact) == Normalise(item2.Contact)
+                    && Normalise(item1.PostCode) == Normalise(item2.PostCode))
                 {
                     return true;
                 }
@@ -43,8 +43,12 @@ namespace Models
 
             public int GetHashCode(Item item)
             {
-                var toHash = item.SecondName + item.Contact + item.PostCode;
+                var toHash = Normalise(item.SecondName) + Normalise(item.Contact) + Normalise(item.PostCode);
                 return toHash.GetHashCode();
+            }
+            private string Normalise(string value)
+            {
+                return value.Trim().ToUpper();
             }
         }
     }
