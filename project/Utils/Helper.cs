@@ -16,6 +16,7 @@ namespace Utils
             _logger = logger;
         }
 
+        /// <inheritdoc/>
         public T Convert<T>(string data, T defaultType)
         {
             var result = defaultType;
@@ -40,6 +41,7 @@ namespace Utils
             return result;
         }
 
+        /// <inheritdoc/>
         public bool CanItemBeAdded(Dictionary<Item, string> dict, Item item)
         {
             var result = false;
