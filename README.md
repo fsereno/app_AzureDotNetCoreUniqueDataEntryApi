@@ -5,9 +5,9 @@ With this application I have built a unique data entry form. A simple React fron
 
 Whilst this functionality could be achieved with JavaScript alone, I wanted to demonstrate knowledge of IEqualityComparer and the .NET Core framework. I also wanted to explore Azure Functions and the power of serverless compute.
 
--Portfolio Repository (https://github.com/fsereno/portfolio)
+- Portfolio Repository (https://github.com/fsereno/portfolio)
 
--IEqualityComparer (https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iequalitycomparer-1?view=net-5.0)
+- IEqualityComparer (https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iequalitycomparer-1?view=net-5.0)
 
 ### Project commands ###
 
