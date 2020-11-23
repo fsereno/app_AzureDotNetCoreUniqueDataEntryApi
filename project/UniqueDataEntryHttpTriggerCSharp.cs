@@ -13,11 +13,11 @@ namespace Azure.Function
 {
     public class UniqueDataEntryHttpTriggerCSharp
     {
-        private IHelper _helper;
+        private IUniqueDataEntryUtil _uniqueDataEntryUtil;
 
-        public UniqueDataEntryHttpTriggerCSharp(IHelper helper)
+        public UniqueDataEntryHttpTriggerCSharp(IUniqueDataEntryUtil uniqueDataEntryUtil)
         {
-            _helper = helper;
+            _uniqueDataEntryUtil = uniqueDataEntryUtil;
         }
 
         [FunctionName("CanItemBeAddedAsync")]
@@ -35,11 +35,11 @@ namespace Azure.Function
                 var requestBody = await streamReader.ReadToEndAsync();
                 var defaultType = new RequestBody();
                 log.LogInformation("requestBody: " + requestBody);
-                data = _helper.Convert<RequestBody>(requestBody, defaultType);
+                data = _uniqueDataEntryUtil.Convert<RequestBody>(requestBody, defaultType);
             }
 
             var dictionary = data.Items.ToDictionary(x => x, x => x.FirstName, equalityComparer);
-            var result = _helper.CanItemBeAdded(dictionary, data.Item);
+            var result = _uniqueDataEntryUtil.CanItemBeAdded(dictionary, data.Item);
 
             log.LogInformation($"Result is: {result}");
 

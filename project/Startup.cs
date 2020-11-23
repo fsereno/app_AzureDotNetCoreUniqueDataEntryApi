@@ -11,7 +11,7 @@ namespace AzureFunctionDependencyInjection
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddScoped<IHelper, Helper>();
+            builder.Services.AddScoped<IUniqueDataEntryUtil, UniqueDataEntryUtil>();
         }
     }
 }

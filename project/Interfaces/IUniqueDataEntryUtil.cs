@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Models;
 namespace Interfaces
 {
-    public interface IHelper
+    public interface IUniqueDataEntryUtil
     {
         /// <summary>
         /// Converts string data to passed generic type. Falls back to a default type.

@@ -7,11 +7,11 @@ using Models;
 
 namespace Utils
 {
-    public class Helper : IHelper
+    public class UniqueDataEntryUtil : IUniqueDataEntryUtil
     {
-        private readonly ILogger<Helper> _logger;
+        private readonly ILogger<UniqueDataEntryUtil> _logger;
 
-        public Helper(ILogger<Helper> logger)
+        public UniqueDataEntryUtil(ILogger<UniqueDataEntryUtil> logger)
         {
             _logger = logger;
         }
@@ -35,7 +35,8 @@ namespace Utils
             }
             catch (Exception exception)
             {
-                _logger.LogError($"There was a problem converting.");
+                _logger.LogError("There was a problem converting.");
+                _logger.LogError(exception.Message);
             }
 
             return result;
@@ -54,7 +55,8 @@ namespace Utils
             }
             catch (Exception exception)
             {
-                _logger.LogWarning($"You cannot add duplicate items.");
+                _logger.LogWarning("You cannot add duplicate items.");
+                _logger.LogWarning(exception.Message);
             }
 
             return result;

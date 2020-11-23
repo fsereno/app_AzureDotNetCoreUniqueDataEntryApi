@@ -10,16 +10,16 @@ using Models;
 
 namespace Test
 {
-    public class HelperTests
+    public class UniqueDataEntryUtilTests
     {
-        private IHelper _sut;
-        private Mock<ILogger<Helper>> _logger;
+        private IUniqueDataEntryUtil _sut;
+        private Mock<ILogger<UniqueDataEntryUtil>> _logger;
         private Dictionary<Item, string> _dictionary;
 
-        public HelperTests()
+        public UniqueDataEntryUtilTests()
         {
-            _logger = new Mock<ILogger<Helper>>();
-            _sut = new Helper(_logger.Object);
+            _logger = new Mock<ILogger<UniqueDataEntryUtil>>();
+            _sut = new UniqueDataEntryUtil(_logger.Object);
 
             var initialCollection = new List<Item>()
             {
