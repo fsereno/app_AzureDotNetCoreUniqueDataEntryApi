@@ -5,7 +5,7 @@ namespace Interfaces
     public interface IUniqueDataEntryUtil
     {
         /// <summary>
-        /// Converts string data to passed generic type. Falls back to a default type.
+        /// Converts string data to the passed generic type. Falls back to a default type if needed.
         /// </summary>
         /// <param name="data">Data as string</param>
         /// <param name="defautType">Default type passed by generic param</param>
@@ -14,7 +14,7 @@ namespace Interfaces
         T Convert<T>(string data, T defautType);
 
         /// <summary>
-        /// Testing to see if an item can be added, by attempting to add the passed item to the dictionary
+        /// Testing to see if an item can be added by attempting to add the passed item to the dictionary
         /// </summary>
         /// <param name="dictionary">A dictionary of exsiting collection</param>
         /// <param name="item">The item to be added</param>
