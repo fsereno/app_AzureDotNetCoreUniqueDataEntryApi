@@ -6,10 +6,10 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Interfaces;
-using Models;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Interfaces;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Models;
 
-namespace Azure.Function
+namespace FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Azure.Function
 {
     public class UniqueDataEntryHttpTriggerCSharp
     {

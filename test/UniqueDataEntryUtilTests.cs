@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
-using Interfaces;
-using Utils;
-using Models;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Interfaces;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Utils;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Models;
 
 namespace Test
 {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Models
+namespace FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Models
 {
     public class Item
     {

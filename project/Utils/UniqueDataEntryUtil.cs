@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Interfaces;
-using Models;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Interfaces;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Models;
 
-namespace Utils
+namespace FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Utils
 {
     public class UniqueDataEntryUtil : IUniqueDataEntryUtil
     {

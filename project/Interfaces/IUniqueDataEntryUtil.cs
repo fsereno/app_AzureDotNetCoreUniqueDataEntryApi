@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using Models;
-namespace Interfaces
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Models;
+
+namespace FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Interfaces
 {
     public interface IUniqueDataEntryUtil
     {

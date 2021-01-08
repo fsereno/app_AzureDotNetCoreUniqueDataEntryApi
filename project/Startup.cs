@@ -1,7 +1,7 @@
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Interfaces;
-using Utils;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Interfaces;
+using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Utils;
 
 [assembly: FunctionsStartup(typeof(AzureFunctionDependencyInjection.Startup))]
 namespace AzureFunctionDependencyInjection
