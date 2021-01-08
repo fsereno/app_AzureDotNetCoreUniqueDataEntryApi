@@ -8,7 +8,7 @@ using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Interfaces;
 using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Utils;
 using FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Models;
 
-namespace Test
+namespace FabioSereno.App_AzureDotNetCoreUniqueDataEntryApi.Test
 {
     public class UniqueDataEntryUtilTests
     {
